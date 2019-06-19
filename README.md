@@ -1,2 +1,2 @@
 # Deep-Learning
-Building Netword with Pytorch and Practice
+Building Networks with Pytorch and Practice
