@@ -1,0 +1,4 @@
+downsampling 
+stride 
+the reason behind this
+the difference in different ResNet module
