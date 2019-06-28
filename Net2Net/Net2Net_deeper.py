@@ -28,12 +28,13 @@ def Net2DeeperNet(self, current_layer_id, new_layer_fil_size=1, new_layer_type='
                 added_noise = np.random.normal(scale=5e-2 * new_layer.weight.data.std(), size=list(new_layer.weight.size()))
                 new_layer.weight.data += torch.FloatTensor(added_noise).type_as(new_layer.weight.data)
             new_layer.bias.data.zero_()
+            #这个部分不清楚
             bnorm = nn.BatchNorm2d(new_layer.out_channels)
             bnorm.weight.data.fill_(1)
             bnorm.bias.data.fill_(0)
             bnorm.running_mean.fill_(0)
             bnorm.running_var.fill_(1)
-
+        #这个部分有问题
         sub_part1 = list(self.part1.children())[0: current_layer_id + 3]
         sub_part2 = list(self.part1.children())[current_layer_id + 3:]
         sub_part1.append(new_layer)
