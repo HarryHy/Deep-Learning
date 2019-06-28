@@ -5,7 +5,7 @@
 \author{HarryHy }
 \date{June 2019}
 
-\begin{document}
+\begin{document} 
 
 \maketitle
 
@@ -16,8 +16,18 @@ For fully connected layers, it adds the number of neural networks. For the CNN, 
 w1 = current\_layer.weight.data\\
 w2 = next\_layer.weight.data\\
 b1 = current\_layer.bias.data\\
-\item{\textbf{Deeper:}}\\
-\item{\textbf{Longer:}}\\
+The parameter for w1 w2 are : out\_channel, in\_channel, kernel\_size, kernel\_size. \\
+\textbf{Question:} In the part of "if 'Conv' in current\_layer.\_\_class\_\_.\_\_name\_\_ and 'Linear' in next\_layer.\_\_class\_\_.\_\_name\_\_:" I don't understand the purpose in this part, but I got how it is modified. 
+\begin{verbatim}
+import torch
+w1 = torch.rand(1,2,3,4)
+print(w1.shape)
+w1 = w1.transpose(1,3)
+print(w1.shape)
+torch.Size([1, 2, 3, 4])
+torch.Size([1, 4, 3, 2])
+\end{verbatim}
+Remain questions are how transpose, select and narrow are working. And the detail implementation of adding noise and the divide parts. Maybe ask how to test the program when programming or adding print cases.
 \end{enumerate}
 \section{Parameter}
 \end{document}
